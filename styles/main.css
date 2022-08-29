@@ -49,6 +49,7 @@ a{
 li{
     line-height: 1.9em;
     list-style-type: circle;
+    font-size: 1.1em;
 }
 
 ul li::before {
@@ -63,6 +64,22 @@ ul li::before {
 li:hover{
     background: var(--mainBorderColor);
     filter: alpha(opacity=20);
+}
+
+#skill--list{
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 1em;
+    flex-wrap: wrap;
+}
+
+.skill-box {
+    display: block;
+    background: var(--mainLinkColor);
+    color: var(--mainBgColor);
+    padding: 5px;
+    border-radius:3%;
+    margin:5px;
 }
 
 #container--main{
@@ -119,14 +136,14 @@ li:hover{
 }
 
 .flag-image{
-    width: 55px;
+    width: 35px;
     height: auto;
     border-radius: 10%;
 }
 
 .name{
     color: var(--mainTextColor);
-    font-size: 1em;
+    font-size: 0.9em;
     margin: 5px 0px;
 }
 
@@ -148,8 +165,9 @@ li:hover{
 
 .period{
     margin-top: 0px;
-    min-width: 230px;
-    width: 230px;
+    min-width: 250px;
+    width: 250px;
+    text-align: right;
 }
 
 .image-timeline{
