@@ -5,6 +5,46 @@
         <title>Andrei Popovici</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('generatePdf').addEventListener('click', function () {
+                    window.jsPDF = window.jspdf.jsPDF;
+                    // Create a new jsPDF instance
+                    var pdf = new jsPDF();
+    
+                    // Get the entire HTML content of the page
+                    var htmlContent = document.documentElement.outerHTML;
+    
+                    // Add content to the PDF
+                    pdf.text(htmlContent, 10, 10);
+    
+                    // Convert the PDF to a Blob
+                    var blob = pdf.output('blob');
+    
+                    // Create a Blob URL
+                    var blobUrl = URL.createObjectURL(blob);
+    
+                    // Create a link and set its href attribute to the Blob URL
+                    var link = document.createElement('a');
+                    link.href = blobUrl;
+
+                    var currentdate = new Date();
+                    var formatedDate = currentdate.getDate()+'_'+(currentdate.getMonth()+1)+'_'+(currentdate.getFullYear()-2000)+'T'+currentdate.getHours()+currentdate.getMinutes();
+    
+                    // Set the download attribute with the desired filename
+                    link.download = `Andrei_Popovici_${formatedDate}.pdf`;
+    
+                    // Append the link to the document and trigger a click event
+                    document.body.appendChild(link);
+                    link.click();
+    
+                    // Remove the link from the document and revoke the Blob URL
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(blobUrl);
+                });
+            });
+        </script>
     </head>
     
     <body>
@@ -15,10 +55,10 @@
                     <h1 id="user-name">Andrei Popovici</h1>
                     <p id="bio"><strong>Software Engineer</strong> with 10+ years of experience in different areas like embedded, automotive, desktop applications, cryptography.</p>
                     <p id="email">
-                        🖥️ Currently working @<a href="https://www.endava.com/" target="_blank">Endava</a> <br>
+                        🖥️ Currently working @<a href="https://www.endava.com/" target="_blank" class="linkBtn">Endava</a> <br>
                         📧 popovici.andrey@gmail.com <br>
-                        🔗 <a href="https://www.linkedin.com/in/andrei-popovici/" target="_blank">LinkedIn</a>
-                        
+                        📌 <a href="https://www.linkedin.com/in/andrei-popovici/" target="_blank" class="linkBtn">LinkedIn</a><br>
+                        🔗 <a href="#" id="generatePdf" class="linkBtn">Download CV</a>
                     </p>
                 </div>
             </section>
@@ -27,6 +67,7 @@
                 <h2>Technical skills</h2>
                 <div id="skill--list">
                         <p class="skill-box">C/C++ / Swift / Java</p>
+                        <p class="skill-box">NodeJS / NestJS / AWS / ReactJS(basic)</p>
                         <p class="skill-box">QT / XCTest</p>
                         <p class="skill-box">Python / Bash</p>
                         <p class="skill-box">HTML / CSS / JS</p>
@@ -48,6 +89,20 @@
                         <li>TDD</li>
                         <li>Testing Automation</li>
                         <li>Testing Pyramid</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section--page">
+                <div id="techniques-methods">
+                    <h2>Domain experience</h2>
+                    <ul>
+                        <li>2 years web development: backend engineer in fintech & insurance projects</li>
+                        <li>5 years emebedded field: 3 in automotive & 2 embedded DVRs</li>
+                        <li>8 years desktop applications(windows API, linux API)</li>
+                        <li>7+ years working in CI & CD enviroments</li>
+                        <li>5 years architecture</li>
+                        <li>3 years management/leadership</li>
                     </ul>
                 </div>
             </section>
@@ -81,11 +136,76 @@
                 <h2>Work Experience</h2>
 
                     <div class="experience">
+                        <p class="period">September 2023 - ongoing</p>
+                        <div class="image-timeline"><p>o</p></div>
+                        <div class="description">
+                            <h3 class="job-title">NodeJS Backend Engineer - fintech</h3>
+                            <p class="company">@Endava for LSEG</p>
+                            <div class="job-description">
+                                <h3>Tasks</h3>
+                                <ul>
+                                    <li>Reshape of the already architecture(monolith) by building one from scratch using microservices</li>
+                                    <li>Split the nodejs/express monolith in multiple microservices using NestJS & Typescript</li>
+                                    <li>Refactoring/Reimplementing the code for the newly microservices</li>
+                                </ul>
+                                <h3>Technical Skills and Tools</h3>
+                                <p>NodeJS, NestJS, Express, microservices, Microsoft Graph, Amazon Web Services(AWS): Elastic Search, DynamoDB</p>
+                                <p>Platform: NodeJS</p>
+                                <p>Language: Typescript & JS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience">
+                        <p class="period">February 2023 - September 2023</p>
+                        <div class="image-timeline"><p>o</p></div>
+                        <div class="description">
+                            <h3 class="job-title">NodeJS Backend Engineer - insurance</h3>
+                            <p class="company">@Endava for QBE</p>
+                            <div class="job-description">
+                                <h3>Tasks</h3>
+                                <ul>
+                                    <li>Bring to life for a new bussines line by implementing a new feature that brings together data from multiple sources</li>
+                                    <li>Refactoring of the existing code & improve the the coverage for the testing farm</li>
+                                    <li>Mentoring/Guidance for the other team members</li>
+                                    <li>Interviewing possible new joiners on the projects</li>
+                                    <li>Improving already existing architecture and helping team members to understand the complexity of the already existing services</li>
+                                </ul>
+                                <p>NodeJS, Express, CosmosDB, JSON Web Token, Microsoft SQL, Sequelize</p>
+                                <p>Platform: NodeJS</p>
+                                <p>Language: JS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience">
+                        <p class="period">August 2022 - February 2023</p>
+                        <div class="image-timeline"><p>o</p></div>
+                        <div class="description">
+                            <h3 class="job-title">NodeJS Backend Engineer - fintech</h3>
+                            <p class="company">@Endava for OneBanx</p>
+                            <div class="job-description">
+                                <h3>Tasks</h3>
+                                <ul>
+                                    <li>Reshape/Redesign the architecture of the new authentication/authorization system</li>
+                                    <li>Code implementation for migration from the Authlete to AWS Cognito Identity provider</li>
+                                    <li>Bug fixing</li>
+                                    <li>Refactoring & improvements for the in place code</li>
+                                </ul>
+                                <h3>Technical Skills and Tools</h3>
+                                <p>NestJS, Express, Jest, JSON Web Token, OAuth2, CIBA FLow, TypeORM, Amazon Web Services(AWS): AWS Parameter Store, AWS RDS(Postgress), AWS Cloud Watch, AWS Lambda, Simple Queue Service (SQS), Simple Notification Service (SNS)</p>
+                                <p>Platform: NodeJS</p>
+                                <p>Language: Typescript & JS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience">
                         <p class="period">June 2019 - August 2022</p>
                         <div class="image-timeline"><p>o</p></div>
                         <div class="description">
                             <h3 class="job-title">Software Engineer & Line Manager & SCRUM Master</h3>
-                            <p class="company">@Endava</p>
+                            <p class="company">@Endava for Cisco</p>
                             <div class="job-description">
                                 <h3>Tasks</h3>
                                 <ul>
@@ -104,7 +224,7 @@
                     </div>
                     
                     <div class="experience">
-                        <p class="period">January 2021 - September 2021</p>
+                        <p class="period">January 2021 - </p>
                         <div class="image-timeline"><p>o</p></div>
                         <div class="description">
                             <h3 class="job-title">C++ Community Lead & C++ Internship coordinator</h3>
@@ -234,11 +354,44 @@
                 <h3>Certifications</h3>
                 <div class="work-experience">
                     <div class="experience">
+                        <p class="period">September 2023</p>
+                        <div class="image-timeline"><p>o</p></div>
+                        <div class="description">
+                            <h3 class="job-title">NestJS Fundamentals Course</h3>
+                            <p class="company">@nestjs.com</p>
+                            <div class="job-description">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience">
+                        <p class="period">January 2023</p>
+                        <div class="image-timeline"><p>o</p></div>
+                        <div class="description">
+                            <h3 class="job-title">AWS Certified Cloud Practitioner</h3>
+                            <a href ="https://www.credly.com/badges/a2beb2bd-148f-4466-9e28-eecb600f2f23/public_url" target="_blank"><p class="company">@amazon.com</p></a>
+                            <div class="job-description">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience">
+                        <p class="period">March-August 2021</p>
+                        <div class="image-timeline"><p>o</p></div>
+                        <div class="description">
+                            <h3 class="job-title">THE JAVASCRIPT FULL-STACK BOOTCAMP</h3>
+                            <p class="company">@flaviocopes</p>
+                            <div class="job-description">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience">
                         <p class="period">June 2021</p>
                         <div class="image-timeline"><p>o</p></div>
                         <div class="description">
                             <h3 class="job-title">Profesional Scrum Master I</h3>
-                            <p class="company">@scrum.org</p>
+                            <a href="https://www.credly.com/badges/91608d1a-551a-4ae8-9262-1c2459ccd2ed/public_url" target="_blank"><p class="company">@scrum.org</p></a>
                             <div class="job-description">
                             </div>
                         </div>
