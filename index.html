@@ -6,42 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('generatePdf').addEventListener('click', function () {
-                    window.jsPDF = window.jspdf.jsPDF;
-                    // Create a new jsPDF instance
-                    var pdf = new jsPDF();
-    
-                    // Get the entire HTML content of the page
-                    var htmlContent = document.documentElement.outerHTML;
-    
-                    // Add content to the PDF
-                    pdf.text(htmlContent, 10, 10);
-    
-                    // Convert the PDF to a Blob
-                    var blob = pdf.output('blob');
-    
-                    // Create a Blob URL
-                    var blobUrl = URL.createObjectURL(blob);
-    
-                    // Create a link and set its href attribute to the Blob URL
-                    var link = document.createElement('a');
-                    link.href = blobUrl;
+                    // Use html2canvas to capture the HTML content as an image
+                    html2canvas(document.body).then(function(canvas) {
+                        window.jsPDF = window.jspdf.jsPDF;
+                        // Create a new jsPDF instance
+                        var pdf = new jsPDF();
 
-                    var currentdate = new Date();
-                    var formatedDate = currentdate.getDate()+'_'+(currentdate.getMonth()+1)+'_'+(currentdate.getFullYear()-2000)+'T'+currentdate.getHours()+currentdate.getMinutes();
-    
-                    // Set the download attribute with the desired filename
-                    link.download = `Andrei_Popovici_${formatedDate}.pdf`;
-    
-                    // Append the link to the document and trigger a click event
-                    document.body.appendChild(link);
-                    link.click();
-    
-                    // Remove the link from the document and revoke the Blob URL
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(blobUrl);
+                        // Convert the canvas image to data URL
+                        var dataUrl = canvas.toDataURL('image/jpeg');
+
+                        // Add the image to the PDF
+                        pdf.addImage(dataUrl, 'JPEG', 10, 10);
+
+                        // Save the PDF and provide a filename
+                        var currentdate = new Date();
+                        var formatedDate = currentdate.getDate()+'_'+(currentdate.getMonth()+1)+'_'+(currentdate.getFullYear()-2000)+'T'+currentdate.getHours()+currentdate.getMinutes();
+                        var fileName = `Andrei_Popovici_${formatedDate}.pdf`;
+                        pdf.save(fileName);
+
+                        // Trigger a download by dynamically creating an anchor element
+                        var link = document.createElement('a');
+                        link.href = dataUrl;
+                        link.download = fileName;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    });
                 });
             });
         </script>
@@ -58,7 +52,7 @@
                         🖥️ Currently working @<a href="https://www.endava.com/" target="_blank" class="linkBtn">Endava</a> <br>
                         📧 popovici.andrey@gmail.com <br>
                         📌 <a href="https://www.linkedin.com/in/andrei-popovici/" target="_blank" class="linkBtn">LinkedIn</a><br>
-                        🔗 <a href="#" id="generatePdf" class="linkBtn">Download CV</a>
+                        
                     </p>
                 </div>
             </section>
