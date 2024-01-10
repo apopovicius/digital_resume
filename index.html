@@ -6,35 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('generatePdf').addEventListener('click', function () {
-                    // Use html2canvas to capture the HTML content as an image
-                    html2canvas(document.body).then(function(canvas) {
-                        window.jsPDF = window.jspdf.jsPDF;
-                        // Create a new jsPDF instance
-                        var pdf = new jsPDF();
-
-                        // Convert the canvas image to data URL
-                        var dataUrl = canvas.toDataURL('image/jpeg');
-
-                        // Add the image to the PDF
-                        pdf.addImage(dataUrl, 'JPEG', 10, 10);
-
-                        // Save the PDF and provide a filename
-                        var currentdate = new Date();
-                        var formatedDate = currentdate.getDate()+'_'+(currentdate.getMonth()+1)+'_'+(currentdate.getFullYear()-2000)+'T'+currentdate.getHours()+currentdate.getMinutes();
-                        var fileName = `Andrei_Popovici_${formatedDate}.pdf`;
-                        pdf.save(fileName);
-
-                        // Trigger a download by dynamically creating an anchor element
-                        var link = document.createElement('a');
-                        link.href = dataUrl;
-                        link.download = fileName;
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
+                    // Use html2pdf.js to capture and convert the HTML content to PDF
+                    var element = document.body;
+                    var currentdate = new Date();
+                    var formatedDate = currentdate.getDate()+'_'+(currentdate.getMonth()+1)+'_'+(currentdate.getFullYear()-2000)+'T'+currentdate.getHours()+currentdate.getMinutes();
+                    var fileName = `Andrei_Popovici_${formatedDate}.pdf`;
+                    html2pdf(element, {
+                        margin: 10,
+                        filename: fileName,
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
                     });
                 });
             });
@@ -52,7 +38,7 @@
                         🖥️ Currently working @<a href="https://www.endava.com/" target="_blank" class="linkBtn">Endava</a> <br>
                         📧 popovici.andrey@gmail.com <br>
                         📌 <a href="https://www.linkedin.com/in/andrei-popovici/" target="_blank" class="linkBtn">LinkedIn</a><br>
-                        
+                        🔗 <a href="#" id="generatePdf" class="linkBtn">Download CV</a>
                     </p>
                 </div>
             </section>
