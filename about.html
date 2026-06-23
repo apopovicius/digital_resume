@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Andrei Popovici — About / Full Career</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="The long-form story of Andrei Popovici's 17+ year engineering career — from kernel-level cryptography and automotive middleware to modern cloud-native backend architecture."
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./styles/main.css?v=3"
+        />
+        <script>
+            // Set the theme before first paint to avoid a flash of the wrong theme.
+            (function () {
+                var stored = null;
+                try {
+                    stored = localStorage.getItem("theme");
+                } catch (e) {}
+                var theme =
+                    stored ||
+                    (window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                        ? "dark"
+                        : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
+    </head>
+
+    <body>
+        <button
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle dark / light theme"
+            title="Toggle dark / light theme"
+        >
+            <svg
+                class="icon-moon"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+            >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg
+                class="icon-sun"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+            >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                />
+            </svg>
+        </button>
+        <div id="container--main">
+            <!-- HERO -->
+            <section id="wrapper--hero" class="section--page">
+                <img
+                    src="./assets/images/myself.jpg"
+                    id="profile-image"
+                    alt="Andrei Popovici"
+                />
+                <h1 id="user-name">Andrei Popovici</h1>
+                <p class="about-tagline">
+                    Senior Backend Engineer &amp; Consultant — 17+ years from
+                    kernel to cloud.
+                </p>
+                <p id="bio">
+                    I build software at every layer of the stack, and I have for
+                    a long time. My work spans
+                    <strong
+                        >embedded systems, automotive, desktop applications, and
+                        modern cloud-native backend platforms</strong
+                    >
+                    — an unusually broad foundation that lets me reason about a
+                    system from the kernel up to the API. Today I specialise in
+                    Node.js, NestJS, and distributed systems architecture, and I
+                    lead migrations, own features end-to-end, and raise the bar
+                    for the teams around me. I'm driven by purpose and technical
+                    challenge, not just compensation.
+                </p>
+                <div class="contact-row">
+                    <span>
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m2 7 10 7 10-7" />
+                        </svg>
+                        popovici.andrey@gmail.com
+                    </span>
+                    <a
+                        href="https://www.linkedin.com/in/andrei-popovici/"
+                        target="_blank"
+                    >
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                            />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a
+                        href="https://github.com/andrei-popovici"
+                        target="_blank"
+                    >
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                            />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://tranzy.ai" target="_blank">
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                        Currently @Tranzy.ai
+                    </a>
+                </div>
+            </section>
+
+            <!-- STORY -->
+            <section class="section--page">
+                <h2>My Story</h2>
+                <div class="narrative">
+                    <p>
+                        My career began in 2008 close to the metal. At
+                        <strong>Comodo</strong> I spent six years on Windows
+                        systems and cryptography — implementing encryption
+                        inside a disk-filter driver, writing a boot-loader
+                        recovery tool for critical encryption failures,
+                        designing the GUI-to-driver communication API, and
+                        building a plugin architecture and a MySQL data layer
+                        for metrics. Those years taught me how software really
+                        behaves when the abstractions fall away.
+                    </p>
+                    <p>
+                        From there I moved into systems where reliability is
+                        non-negotiable. As
+                        <strong
+                            >Technical Lead and Software Architect at
+                            Continental</strong
+                        >
+                        I owned the design, risk analysis, and delivery for the
+                        networking domain of an automotive infotainment
+                        platform. I then carried that low-level, cross-platform
+                        craft into media and desktop — middleware and playback
+                        stability at
+                        <strong>TiVo</strong>, and modern C++17 and Swift
+                        desktop applications for <strong>Cisco</strong>, where I
+                        also stepped into people leadership as a line manager
+                        and Scrum Master. Along the way I founded the C++
+                        community and internship programme at Endava Iași,
+                        because growing engineers is part of how I work.
+                    </p>
+                    <p>
+                        Around 2022 I made a deliberate pivot into modern
+                        <strong>cloud-native backend engineering</strong>, and
+                        the breadth behind me turned out to be a superpower.
+                        Through Endava I rotated across demanding domains —
+                        authentication and fintech flows at
+                        <strong>OneBanx</strong>, insurance data aggregation at
+                        <strong>QBE</strong>, decomposing a monolith into NestJS
+                        microservices for the
+                        <strong>London Stock Exchange Group</strong>, and
+                        contributing directly to the
+                        <strong>AWS SDK for JavaScript</strong> as part of the
+                        DynamoDB peer group. I later led a Qualified Electronic
+                        Signature integration at <strong>BearingPoint</strong>,
+                        owning it end-to-end.
+                    </p>
+                    <p>
+                        Today I'm a backend consultant at
+                        <strong>Tranzy.ai</strong>, designing services for a
+                        next-generation urban mobility platform — and treating
+                        <strong>AI-augmented development</strong> as a core part
+                        of the workflow, using Claude for architecture
+                        reasoning, code generation, and review while holding a
+                        high quality bar. The throughline of my whole career is
+                        the same: depth from the kernel to the cloud, a habit of
+                        owning problems end-to-end, and a genuine pull toward
+                        the next hard technical challenge.
+                    </p>
+                </div>
+            </section>
+
+            <!-- HIGHLIGHTS -->
+            <section class="section--page">
+                <h2>What I Bring</h2>
+                <div class="highlights">
+                    <div class="highlight">
+                        <h3>Kernel-to-cloud breadth</h3>
+                        <p>
+                            17+ years across embedded, automotive, desktop, and
+                            cloud-native backends — I understand systems at
+                            every layer.
+                        </p>
+                    </div>
+                    <div class="highlight">
+                        <h3>Architecture &amp; migrations</h3>
+                        <p>
+                            A consistent track record of leading monolith-to-
+                            microservice migrations and owning design decisions
+                            for high-complexity modules.
+                        </p>
+                    </div>
+                    <div class="highlight">
+                        <h3>Technical leadership</h3>
+                        <p>
+                            Line management, Scrum mastering, mentoring, and
+                            founding a community and internship programme from
+                            scratch.
+                        </p>
+                    </div>
+                    <div class="highlight">
+                        <h3>AI-augmented delivery</h3>
+                        <p>
+                            Integrating LLMs (Claude, Microsoft Copilot) into
+                            real products and into the day-to-day engineering
+                            workflow.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section--page">
+                <h2>Technical Skills</h2>
+                <div id="skill--list">
+                    <p class="skill-box current">Node.js</p>
+                    <p class="skill-box current">NestJS</p>
+                    <p class="skill-box current">TypeScript</p>
+                    <p class="skill-box current">PostgreSQL</p>
+                    <p class="skill-box current">TypeORM / MikroORM</p>
+                    <p class="skill-box current">REST APIs</p>
+                    <p class="skill-box current">Microservices</p>
+                    <p class="skill-box current">Docker</p>
+                    <p class="skill-box current">
+                        AWS (Lambda, SQS, SNS, RDS, DynamoDB)
+                    </p>
+                    <p class="skill-box current">Azure</p>
+                    <p class="skill-box current">OAuth2 / JWT</p>
+                    <p class="skill-box current">CI/CD</p>
+                    <p class="skill-box current">AI-augmented Development</p>
+                    <p class="skill-box current">
+                        LLM Integration (Copilot, Claude)
+                    </p>
+                    <p class="skill-box">C / C++17</p>
+                    <p class="skill-box">Swift</p>
+                    <p class="skill-box">Java</p>
+                    <p class="skill-box">Python / Bash</p>
+                    <p class="skill-box">Qt Framework</p>
+                    <p class="skill-box">MySQL / SQLite</p>
+                    <p class="skill-box">Git / Perforce</p>
+                    <p class="skill-box">ReactJS (basic)</p>
+                </div>
+                <p class="skill-legend">Highlighted = current primary stack</p>
+            </section>
+
+            <!-- METHODS -->
+            <section class="section--page">
+                <h2>Methods &amp; Practices</h2>
+                <div class="two-col">
+                    <ul>
+                        <li>Agile / Scrum</li>
+                        <li>Clean Architecture</li>
+                        <li>Test-Driven Development (TDD)</li>
+                        <li>Intensive Code Review</li>
+                    </ul>
+                    <ul>
+                        <li>CI &amp; CD Pipelines</li>
+                        <li>Testing Pyramid &amp; Test Automation</li>
+                        <li>Pair Programming</li>
+                        <li>Technical Mentoring &amp; Leadership</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- DOMAIN -->
+            <section class="section--page">
+                <h2>Domain Experience</h2>
+                <div class="two-col">
+                    <ul>
+                        <li>
+                            4+ years cloud-native backend (fintech, insurance,
+                            trading, mobility)
+                        </li>
+                        <li>
+                            5 years embedded systems (3 automotive, 2 DVR/IPTV)
+                        </li>
+                        <li>
+                            8 years desktop applications (Windows &amp; Linux
+                            API)
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            5 years software architecture &amp; technical
+                            leadership
+                        </li>
+                        <li>
+                            3 years engineering management / line management
+                        </li>
+                        <li>7+ years CI/CD environments</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CAREER HISTORY (no timeline) -->
+            <section class="section--page">
+                <h2>Career History</h2>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Backend Consultant
+                            <span class="role-company">· Tranzy.ai</span>
+                        </p>
+                        <p class="role-period">Jan 2026 — Ongoing</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Designing and building backend services for a
+                            next-generation urban transportation platform, from
+                            architecture decisions through to production
+                            deployment.
+                        </li>
+                        <li>
+                            Defined scalable API contracts and service
+                            boundaries to support real-time mobility operations
+                            across multiple cities.
+                        </li>
+                        <li>
+                            Introduced architectural patterns improving platform
+                            maintainability and reducing onboarding friction for
+                            new engineers.
+                        </li>
+                        <li>
+                            Leverage Claude as a core part of the development
+                            workflow for architecture reasoning, code
+                            generation, and review, accelerating delivery while
+                            maintaining high code quality standards.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> Node.js, NestJS, TypeScript,
+                        PostgreSQL, MikroORM, Docker, Azure, REST APIs,
+                        Microservices, Claude (AI-augmented development)
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Backend Engineer — Digital Sign Product
+                            <span class="role-company">· BearingPoint</span>
+                        </p>
+                        <p class="role-period">Sep 2025 — Feb 2026</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Led end-to-end integration of a Qualified Electronic
+                            Signature (QES) solution via IDnow: owned
+                            requirements gathering, technical design, and
+                            delivery, coordinating directly with the IDnow
+                            engineering team.
+                        </li>
+                        <li>
+                            Drove migration of the persistence layer to TypeORM,
+                            establishing migration strategy, codebase structure,
+                            and CI/CD pipelines from scratch.
+                        </li>
+                        <li>
+                            Reduced technical debt through targeted architecture
+                            simplifications and clean-code enforcement across
+                            the platform.
+                        </li>
+                        <li>
+                            Promoted AI-assisted development practices within
+                            the team, sharing tooling knowledge and workflows to
+                            improve collective productivity.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> Node.js, NestJS, TypeScript,
+                        TypeORM, PostgreSQL, CI/CD, QES, IDnow, Clean
+                        Architecture
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            JavaScript SDK Engineer
+                            <span class="role-company"
+                                >· Endava for Amazon Web Services (AWS)</span
+                            >
+                        </p>
+                        <p class="role-period">Apr 2025 — Sep 2025</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Member of the DynamoDB SDK peer group, collaborating
+                            with AWS engineers and maintainers on the evolution
+                            of DynamoDB tooling within the AWS SDK for
+                            JavaScript ecosystem.
+                        </li>
+                        <li>
+                            Co-authored the proposal and architectural design
+                            for the migration of DynamoDB DataMapper from AWS
+                            SDK v2 to a modern, modular implementation aligned
+                            with AWS SDK v3 design principles.
+                        </li>
+                        <li>
+                            Developed proof-of-concept implementations covering
+                            schema definition, object marshalling, validation,
+                            and DynamoDB command execution using the AWS SDK v3
+                            middleware architecture.
+                        </li>
+                        <li>
+                            Designed and implemented a benchmarking framework
+                            for measuring DynamoDB GetItem and PutItem
+                            performance across SDK versions, payload sizes, and
+                            execution environments.
+                        </li>
+                        <li>
+                            Built CloudWatch dashboards and automated monitoring
+                            infrastructure using AWS SAM, Lambda, and
+                            CloudFormation, enabling continuous performance
+                            analysis and regression detection.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> TypeScript, JavaScript, Node.js,
+                        AWS SDK v3, DynamoDB, DynamoDBDocumentClient, AWS SAM,
+                        AWS Lambda, CloudFormation, CloudWatch
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Senior Node.js Backend Engineer — Trading Platform
+                            <span class="role-company"
+                                >· Endava for LSEG (London Stock Exchange
+                                Group)</span
+                            >
+                        </p>
+                        <p class="role-period">Sep 2023 — Apr 2025</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Led decomposition of a Node.js/Express monolith into
+                            a NestJS microservices architecture, improving
+                            scalability and team autonomy.
+                        </li>
+                        <li>
+                            Integrated Microsoft Copilot Declarative Agents into
+                            the trading platform by connecting the agent to
+                            internal backend services through declarative
+                            configuration files (actions/plugins), enabling
+                            natural-language access to business data without
+                            custom agent code.
+                        </li>
+                        <li>
+                            Refactored core business logic during migration,
+                            maintaining full functional parity while improving
+                            testability and code clarity.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> Node.js, NestJS, Express,
+                        TypeScript, OAuth2, Microsoft Graph API, Microsoft
+                        Copilot Declarative Agents, AWS (Elasticsearch,
+                        DynamoDB, Redis)
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Node.js Backend Engineer — Insurance
+                            <span class="role-company">· Endava for QBE</span>
+                        </p>
+                        <p class="role-period">Feb 2023 — Sep 2023</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Implemented a new business-line feature aggregating
+                            data from multiple external sources, delivering it
+                            end-to-end within a single quarter.
+                        </li>
+                        <li>
+                            Significantly expanded test coverage across the
+                            existing service farm, improving reliability and
+                            reducing regression risk.
+                        </li>
+                        <li>
+                            Mentored junior engineers and conducted technical
+                            interviews for new project hires.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> Node.js, Express, JavaScript,
+                        CosmosDB, Microsoft SQL, Sequelize, JWT
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Node.js Backend Engineer — Fintech
+                            <span class="role-company"
+                                >· Endava for OneBanx</span
+                            >
+                        </p>
+                        <p class="role-period">Aug 2022 — Feb 2023</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Redesigned and implemented a new
+                            authentication/authorisation architecture, migrating
+                            from Authlete to AWS Cognito as the identity
+                            provider.
+                        </li>
+                        <li>
+                            Implemented the CIBA (Client Initiated Backchannel
+                            Authentication) flow and integrated AWS SQS/SNS for
+                            asynchronous notification pipelines.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> NestJS, TypeORM, OAuth2, JWT,
+                        CIBA, AWS (RDS, Lambda, SQS, SNS, Parameter Store,
+                        CloudWatch)
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            C++ Community Lead &amp; Internship Coordinator
+                            <span class="role-company">· Endava Iași</span>
+                        </p>
+                        <p class="role-period">Jan 2021 — Sep 2025</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Founded the C++ Endava Iași Community and created
+                            the first edition of the Endava C++ Internship
+                            programme from scratch.
+                        </li>
+                        <li>
+                            Designed the internship curriculum, delivered
+                            technical training sessions, conducted interviews,
+                            and selected graduates for full-time roles.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Software Engineer, Line Manager &amp; Scrum Master
+                            <span class="role-company">· Endava for Cisco</span>
+                        </p>
+                        <p class="role-period">Jun 2019 — Aug 2022</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Line manager for a newly formed Scrum team of 6
+                            engineers; responsible for hiring, ramp-up, and
+                            day-to-day people management.
+                        </li>
+                        <li>
+                            Owned the macOS notarization process end-to-end,
+                            scripting and integrating it fully into the build
+                            system.
+                        </li>
+                        <li>
+                            Developed cross-platform features and fixes in
+                            modern C++17 and Swift for Cisco desktop
+                            applications on Windows and macOS.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> C++17, Swift, Qt Framework,
+                        Python
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Software Engineer &amp; Scrum Master
+                            <span class="role-company">· TiVo</span>
+                        </p>
+                        <p class="role-period">Mar 2018 — Jun 2019</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Served as Scrum Master for a 7-person team (6 devs +
+                            1 QA), facilitating ceremonies and removing blockers
+                            to maintain sprint velocity.
+                        </li>
+                        <li>
+                            Defined and implemented solutions for IPVOD playback
+                            stability and IP Linear project features in the
+                            middleware layer.
+                        </li>
+                        <li>
+                            Wrote design review documents and delivered
+                            on-the-job training to team members.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> C++98, Haxe, Jira, Perforce,
+                        CI/CD — Platforms: Windows, Ubuntu
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Technical Lead / Software Architect
+                            <span class="role-company"
+                                >· Continental — Automotive Infotainment</span
+                            >
+                        </p>
+                        <p class="role-period">Mar 2014 — Apr 2017</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Acted as technical lead and architect for middleware
+                            components of an automotive infotainment platform,
+                            owning design decisions, risk analysis, and delivery
+                            for the networking domain.
+                        </li>
+                        <li>
+                            Defined software design for high-complexity modules,
+                            reviewed requirements, and drove code quality
+                            through intensive code review and mentoring.
+                        </li>
+                        <li>
+                            Participated in recruitment and was part of the
+                            department mentoring team.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> C/C++, Python, CAN Bus, D-Bus,
+                        Linux API, GLib, Qt Creator, Klocwork, CI/CD
+                    </p>
+                </div>
+
+                <div class="role">
+                    <div class="role-header">
+                        <p class="role-title">
+                            Software Engineer — Windows Systems &amp;
+                            Cryptography
+                            <span class="role-company">· Comodo</span>
+                        </p>
+                        <p class="role-period">Feb 2008 — Mar 2014</p>
+                    </div>
+                    <ul>
+                        <li>
+                            Implemented encryption operations inside a Windows
+                            disk-filter driver, including a boot-loader recovery
+                            tool for critical encryption failures.
+                        </li>
+                        <li>
+                            Built the GUI-to-driver communication API and
+                            developed a plugin architecture for the main
+                            application (FTP client, registry browser, and
+                            others).
+                        </li>
+                        <li>
+                            Designed and implemented a MySQL data layer for
+                            metrics and statistics using Hibernate (HQL,
+                            Criteria Queries), including master/slave
+                            replication design.
+                        </li>
+                    </ul>
+                    <p class="tech-stack">
+                        <strong>Stack:</strong> C, C++, Java, Hibernate, MySQL,
+                        WinDbg, WinHex, IOCTL, Windows Driver Kit, TestNG
+                    </p>
+                </div>
+            </section>
+
+            <!-- EDUCATION & CERTS (no timeline) -->
+            <section class="section--page">
+                <h2>Education &amp; Certifications</h2>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">Master of Engineering</p>
+                        <p class="edu-issuer">
+                            Gheorghe Asachi Technical University — Faculty of
+                            Automatic Control &amp; Computer Engineering, Iași
+                        </p>
+                    </div>
+                    <p class="edu-period">2009 — 2010</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">Bachelor of Engineering</p>
+                        <p class="edu-issuer">
+                            Gheorghe Asachi Technical University — Faculty of
+                            Automatic Control &amp; Computer Engineering, Iași
+                        </p>
+                    </div>
+                    <p class="edu-period">2004 — 2009</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">AWS Certified Cloud Practitioner</p>
+                        <p class="edu-issuer">
+                            <a
+                                href="https://www.credly.com/badges/a2beb2bd-148f-4466-9e28-eecb600f2f23/public_url"
+                                target="_blank"
+                                >Verify on Credly →</a
+                            >
+                        </p>
+                    </div>
+                    <p class="edu-period">Jan 2023</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">
+                            Professional Scrum Master I (PSM I)
+                        </p>
+                        <p class="edu-issuer">
+                            <a
+                                href="https://www.credly.com/badges/91608d1a-551a-4ae8-9262-1c2459ccd2ed/public_url"
+                                target="_blank"
+                                >Verify on Credly →</a
+                            >
+                        </p>
+                    </div>
+                    <p class="edu-period">Jun 2021</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">NestJS Fundamentals</p>
+                        <p class="edu-issuer">nestjs.com</p>
+                    </div>
+                    <p class="edu-period">Sep 2023</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">JavaScript Full-Stack Bootcamp</p>
+                        <p class="edu-issuer">flaviocopes.com</p>
+                    </div>
+                    <p class="edu-period">Mar — Aug 2021</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">Train the Trainers</p>
+                        <p class="edu-issuer">Extreme Training</p>
+                    </div>
+                    <p class="edu-period">May 2018</p>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <p class="edu-name">
+                            CCNA Exploration (4 modules: Network Fundamentals,
+                            Routing, LAN Switching, WAN)
+                        </p>
+                        <p class="edu-issuer">
+                            Cisco Network Academy — OAO RoEduNet, Iași
+                        </p>
+                    </div>
+                    <p class="edu-period">2009 — 2011</p>
+                </div>
+            </section>
+
+            <!-- LANGUAGES -->
+            <section class="section--page">
+                <h2>Languages</h2>
+                <div id="spoken-languages">
+                    <div class="language">
+                        <img
+                            src="./assets/flags/gb.svg"
+                            class="flag-image"
+                            alt="English"
+                        />
+                        <p class="name">English</p>
+                        <p class="level">Fluent</p>
+                    </div>
+                    <div class="language">
+                        <img
+                            src="./assets/flags/ro.svg"
+                            class="flag-image"
+                            alt="Romanian"
+                        />
+                        <p class="name">Romanian</p>
+                        <p class="level">Native</p>
+                    </div>
+                    <div class="language">
+                        <img
+                            src="./assets/flags/es.svg"
+                            class="flag-image"
+                            alt="Spanish"
+                        />
+                        <p class="name">Spanish</p>
+                        <p class="level">Basic</p>
+                    </div>
+                </div>
+            </section>
+
+            <p class="back-to-cv">
+                Prefer the concise, one-page version?
+                <a href="./index.html"
+                    >View the résumé and download the PDF →</a
+                >
+            </p>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const root = document.documentElement;
+
+                // ── Theme toggle ──
+                document
+                    .getElementById("themeToggle")
+                    .addEventListener("click", () => {
+                        const next =
+                            root.getAttribute("data-theme") === "dark"
+                                ? "light"
+                                : "dark";
+                        root.setAttribute("data-theme", next);
+                        try {
+                            localStorage.setItem("theme", next);
+                        } catch (e) {}
+                    });
+            });
+        </script>
+    </body>
+</html>
