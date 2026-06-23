@@ -180,22 +180,32 @@ body {
 }
 
 #themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
     padding: 0;
-    background: transparent;
+    background: var(--mainBgColor);
     color: var(--secondaryTextColor);
     border: 1px solid var(--mainBorderColor);
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    transition:
+        color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease;
 }
 
 #themeToggle:hover {
     color: var(--mainLinkColor);
     border-color: var(--mainLinkColor);
+    transform: translateY(-1px);
 }
 
 #themeToggle .icon-sun {
