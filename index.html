@@ -1,724 +1,802 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Andrei Popovici</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="./styles/main.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .getElementById("generatePdf")
-          .addEventListener("click", function () {
-            const now = new Date();
-            const formattedDate = now
-              .toLocaleString("en-GB", {
-                year: "2-digit",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-              })
-              .split(", ")
-              .join("T")
-              .replace(/\//g, "_")
-              .replace(":", "");
-            const fileName = `Andrei_Popovici_${formattedDate}.pdf`;
-            html2pdf(document.body, {
-              margin: 10,
-              filename: fileName,
-              image: { type: "jpeg", quality: 0.9 },
-              html2canvas: { scale: 1.5 },
-              jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Andrei Popovici — Senior Backend Engineer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./styles/main.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    </head>
+
+    <body>
+        <div id="container--main">
+            <!-- HERO -->
+            <section id="wrapper--hero" class="section--page">
+                <img
+                    src="./assets/images/myself.jpg"
+                    id="profile-image"
+                    alt="Andrei Popovici"
+                />
+                <h1 id="user-name">Andrei Popovici</h1>
+                <p id="bio">
+                    <strong>Senior Backend Engineer &amp; Consultant</strong>
+                    with 17+ years of experience building software across
+                    embedded systems, automotive, desktop, and modern
+                    cloud-native backend platforms. <br /><br />
+                    Specialising in Node.js, NestJS, and distributed systems
+                    architecture. Brings an unusually broad technical foundation
+                    — from kernel-level driver development and automotive
+                    middleware to fintech microservices and AI-augmented
+                    workflows — and a consistent track record of leading
+                    migrations, owning features end-to-end, and raising the bar
+                    for the teams around him.
+                    <br /><br />
+                    Driven by purpose and technical challenge, not just
+                    compensation.
+                </p>
+                <div class="contact-row">
+                    <span>
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m2 7 10 7 10-7" />
+                        </svg>
+                        popovici.andrey@gmail.com
+                    </span>
+                    <a
+                        href="https://www.linkedin.com/in/andrei-popovici/"
+                        target="_blank"
+                    >
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                            />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a
+                        href="https://github.com/andrei-popovici"
+                        target="_blank"
+                    >
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                            />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://tranzy.ai" target="_blank">
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                        Currently @Tranzy.ai
+                    </a>
+                    <button id="generatePdf" type="button">
+                        <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                            />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Download PDF
+                    </button>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section--page">
+                <h2>Technical Skills</h2>
+                <div id="skill--list">
+                    <p class="skill-box current">Node.js</p>
+                    <p class="skill-box current">NestJS</p>
+                    <p class="skill-box current">TypeScript</p>
+                    <p class="skill-box current">PostgreSQL</p>
+                    <p class="skill-box current">TypeORM / MikroORM</p>
+                    <p class="skill-box current">REST APIs</p>
+                    <p class="skill-box current">Microservices</p>
+                    <p class="skill-box current">Docker</p>
+                    <p class="skill-box current">
+                        AWS (Lambda, SQS, SNS, RDS, DynamoDB)
+                    </p>
+                    <p class="skill-box current">Azure</p>
+                    <p class="skill-box current">OAuth2 / JWT</p>
+                    <p class="skill-box current">CI/CD</p>
+                    <p class="skill-box current">AI-augmented Development</p>
+                    <p class="skill-box current">
+                        LLM Integration (Copilot, Claude)
+                    </p>
+                    <p class="skill-box">C / C++17</p>
+                    <p class="skill-box">Swift</p>
+                    <p class="skill-box">Java</p>
+                    <p class="skill-box">Python / Bash</p>
+                    <p class="skill-box">Qt Framework</p>
+                    <p class="skill-box">MySQL / SQLite</p>
+                    <p class="skill-box">Git / Perforce</p>
+                    <p class="skill-box">ReactJS (basic)</p>
+                </div>
+                <p class="skill-legend">Highlighted = current primary stack</p>
+            </section>
+
+            <!-- METHODS -->
+            <section class="section--page">
+                <h2>Methods &amp; Practices</h2>
+                <div class="two-col">
+                    <ul>
+                        <li>Agile / Scrum</li>
+                        <li>Clean Architecture</li>
+                        <li>Test-Driven Development (TDD)</li>
+                        <li>Intensive Code Review</li>
+                    </ul>
+                    <ul>
+                        <li>CI &amp; CD Pipelines</li>
+                        <li>Testing Pyramid &amp; Test Automation</li>
+                        <li>Pair Programming</li>
+                        <li>Technical Mentoring &amp; Leadership</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- DOMAIN -->
+            <section class="section--page">
+                <h2>Domain Experience</h2>
+                <div class="two-col">
+                    <ul>
+                        <li>
+                            4+ years cloud-native backend (fintech, insurance,
+                            trading, mobility)
+                        </li>
+                        <li>
+                            5 years embedded systems (3 automotive, 2 DVR/IPTV)
+                        </li>
+                        <li>
+                            8 years desktop applications (Windows &amp; Linux
+                            API)
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            5 years software architecture &amp; technical
+                            leadership
+                        </li>
+                        <li>
+                            3 years engineering management / line management
+                        </li>
+                        <li>7+ years CI/CD environments</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- LANGUAGES -->
+            <section class="section--page">
+                <h2>Languages</h2>
+                <div id="spoken-languages">
+                    <div class="language">
+                        <img
+                            src="./assets/flags/gb.svg"
+                            class="flag-image"
+                            alt="English"
+                        />
+                        <p class="name">English</p>
+                        <p class="level">Fluent</p>
+                    </div>
+                    <div class="language">
+                        <img
+                            src="./assets/flags/ro.svg"
+                            class="flag-image"
+                            alt="Romanian"
+                        />
+                        <p class="name">Romanian</p>
+                        <p class="level">Native</p>
+                    </div>
+                    <div class="language">
+                        <img
+                            src="./assets/flags/es.svg"
+                            class="flag-image"
+                            alt="Spanish"
+                        />
+                        <p class="name">Spanish</p>
+                        <p class="level">Basic</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WORK EXPERIENCE -->
+            <section class="section--page">
+                <h2>Work Experience</h2>
+
+                <div class="experience">
+                    <p class="period">Jan 2026 — Ongoing</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">Backend Consultant</h3>
+                        <p class="company">Tranzy.ai</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Designing and building backend services for
+                                    a next-generation urban transportation
+                                    platform, from architecture decisions
+                                    through to production deployment.
+                                </li>
+                                <li>
+                                    Defined scalable API contracts and service
+                                    boundaries to support real-time mobility
+                                    operations across multiple cities.
+                                </li>
+                                <li>
+                                    Introduced architectural patterns improving
+                                    platform maintainability and reducing
+                                    onboarding friction for new engineers.
+                                </li>
+                                <li>
+                                    Leverage Claude as a core part of the
+                                    development workflow for architecture
+                                    reasoning, code generation, and review,
+                                    accelerating delivery while maintaining high
+                                    code quality standards.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> Node.js, NestJS,
+                                TypeScript, PostgreSQL, MikroORM, Docker, Azure,
+                                REST APIs, Microservices, Claude (AI-augmented
+                                development)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Sep 2025 — Feb 2026</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Backend Engineer — Digital Sign Product
+                        </h3>
+                        <p class="company">BearingPoint</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Led end-to-end integration of a Qualified
+                                    Electronic Signature (QES) solution via
+                                    IDnow: owned requirements gathering,
+                                    technical design, and delivery, coordinating
+                                    directly with the IDnow engineering team.
+                                </li>
+                                <li>
+                                    Drove migration of persistence layer to
+                                    TypeORM, establishing migration strategy,
+                                    codebase structure, and CI/CD pipelines from
+                                    scratch.
+                                </li>
+                                <li>
+                                    Reduced technical debt through targeted
+                                    architecture simplifications and clean code
+                                    enforcement across the platform.
+                                </li>
+                                <li>
+                                    Promoted AI-assisted development practices
+                                    within the team, sharing tooling knowledge
+                                    and workflows to improve collective
+                                    productivity.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> Node.js, NestJS,
+                                TypeScript, TypeORM, PostgreSQL, CI/CD, QES,
+                                IDnow, Clean Architecture
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Apr 2025 — Sep 2025</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">JavaScript SDK Engineer</h3>
+                        <p class="company">
+                            Endava for Amazon Web Services (AWS)
+                        </p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Member of the DynamoDB SDK peer group,
+                                    collaborating with AWS engineers and
+                                    maintainers on the evolution of DynamoDB
+                                    tooling within the AWS SDK for JavaScript
+                                    ecosystem.
+                                </li>
+                                <li>
+                                    Co-authored the proposal and architectural
+                                    design for the migration of DynamoDB
+                                    DataMapper from AWS SDK v2 to a modern,
+                                    modular implementation aligned with AWS SDK
+                                    v3 design principles.
+                                </li>
+                                <li>
+                                    Developed proof-of-concept implementations
+                                    covering schema definition, object
+                                    marshalling, validation, and DynamoDB
+                                    command execution using the AWS SDK v3
+                                    middleware architecture.
+                                </li>
+                                <li>
+                                    Designed and implemented a benchmarking
+                                    framework for measuring DynamoDB GetItem and
+                                    PutItem performance across SDK versions,
+                                    payload sizes, and execution environments.
+                                </li>
+                                <li>
+                                    Built CloudWatch dashboards and automated
+                                    monitoring infrastructure using AWS SAM,
+                                    Lambda, and CloudFormation, enabling
+                                    continuous performance analysis and
+                                    regression detection for DynamoDB
+                                    operations.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> TypeScript, JavaScript,
+                                Node.js, AWS SDK v3, DynamoDB,
+                                DynamoDBDocumentClient, AWS SAM, AWS Lambda,
+                                CloudFormation, CloudWatch
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience">
+                    <p class="period">Sep 2023 — Apr 2025</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Senior Node.js Backend Engineer — Trading Platform
+                        </h3>
+                        <p class="company">
+                            Endava for LSEG (London Stock Exchange Group)
+                        </p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Led decomposition of a Node.js/Express
+                                    monolith into a NestJS microservices
+                                    architecture, improving scalability and team
+                                    autonomy.
+                                </li>
+                                <li>
+                                    Integrated Microsoft Copilot Declarative
+                                    Agents into the trading platform by
+                                    connecting the agent to internal backend
+                                    services through declarative configuration
+                                    files (actions/plugins), enabling natural
+                                    language access to business data without
+                                    custom agent code.
+                                </li>
+                                <li>
+                                    Refactored core business logic during
+                                    migration, maintaining full functional
+                                    parity while improving testability and code
+                                    clarity.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> Node.js, NestJS,
+                                Express, TypeScript, OAuth2, Microsoft Graph
+                                API, Microsoft Copilot Declarative Agents, AWS
+                                (Elasticsearch, DynamoDB, Redis)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Feb 2023 — Sep 2023</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Node.js Backend Engineer — Insurance
+                        </h3>
+                        <p class="company">Endava for QBE</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Implemented a new business line feature
+                                    aggregating data from multiple external
+                                    sources, delivering it end-to-end within a
+                                    single quarter.
+                                </li>
+                                <li>
+                                    Significantly expanded test coverage across
+                                    the existing service farm, improving
+                                    reliability and reducing regression risk.
+                                </li>
+                                <li>
+                                    Mentored junior engineers and conducted
+                                    technical interviews for new project hires.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> Node.js, Express,
+                                JavaScript, CosmosDB, Microsoft SQL, Sequelize,
+                                JWT
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Aug 2022 — Feb 2023</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Node.js Backend Engineer — Fintech
+                        </h3>
+                        <p class="company">Endava for OneBanx</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Redesigned and implemented a new
+                                    authentication/authorisation architecture,
+                                    migrating from Authlete to AWS Cognito as
+                                    the identity provider.
+                                </li>
+                                <li>
+                                    Implemented CIBA (Client Initiated
+                                    Backchannel Authentication) flow and
+                                    integrated AWS SQS/SNS for asynchronous
+                                    notification pipelines.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> NestJS, TypeORM, OAuth2,
+                                JWT, CIBA, AWS (RDS, Lambda, SQS, SNS, Parameter
+                                Store, CloudWatch)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Jan 2021 — Sep 2025</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            C++ Community Lead &amp; Internship Coordinator
+                        </h3>
+                        <p class="company">Endava Iași</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Founded the C++ Endava Iași Community and
+                                    created the first edition of the Endava C++
+                                    Internship programme from scratch.
+                                </li>
+                                <li>
+                                    Designed the internship curriculum,
+                                    delivered technical training sessions,
+                                    conducted interviews, and selected graduates
+                                    for full-time roles.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Jun 2019 — Aug 2022</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Software Engineer, Line Manager &amp; Scrum Master
+                        </h3>
+                        <p class="company">Endava for Cisco</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Line manager for a newly formed Scrum team
+                                    of 6 engineers; responsible for hiring,
+                                    ramp-up, and day-to-day people management.
+                                </li>
+                                <li>
+                                    Owned the macOS notarization process
+                                    end-to-end, scripting and integrating it
+                                    fully into the build system.
+                                </li>
+                                <li>
+                                    Developed cross-platform features and fixes
+                                    in modern C++17 and Swift for Cisco desktop
+                                    applications on Windows and macOS.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> C++17, Swift, Qt
+                                Framework, Python
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Mar 2018 — Jun 2019</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Software Engineer &amp; Scrum Master
+                        </h3>
+                        <p class="company">TiVo</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Served as Scrum Master for a 7-person team
+                                    (6 devs + 1 QA), facilitating ceremonies and
+                                    removing blockers to maintain sprint
+                                    velocity.
+                                </li>
+                                <li>
+                                    Defined and implemented solutions for IPVOD
+                                    playback stability and IP Linear project
+                                    features in the middleware layer.
+                                </li>
+                                <li>
+                                    Wrote design review documents and delivered
+                                    on-the-job training to team members.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> C++98, Haxe, Jira,
+                                Perforce, CI/CD — Platforms: Windows, Ubuntu
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Mar 2014 — Apr 2017</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Technical Lead / Software Architect
+                        </h3>
+                        <p class="company">
+                            Continental — Automotive Infotainment
+                        </p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Acted as technical lead and architect for
+                                    middleware components of an automotive
+                                    infotainment platform, owning design
+                                    decisions, risk analysis, and delivery for
+                                    the networking domain.
+                                </li>
+                                <li>
+                                    Defined software design for high-complexity
+                                    modules, reviewed requirements, and drove
+                                    code quality through intensive code review
+                                    and mentoring.
+                                </li>
+                                <li>
+                                    Participated in recruitment and was part of
+                                    the department mentoring team.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> C/C++, Python, CAN Bus,
+                                D-Bus, Linux API, GLib, Qt Creator, Klocwork,
+                                CI/CD
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <p class="period">Feb 2008 — Mar 2014</p>
+                    <div class="timeline-dot"></div>
+                    <div class="description">
+                        <h3 class="job-title">
+                            Software Engineer — Windows Systems &amp;
+                            Cryptography
+                        </h3>
+                        <p class="company">Comodo</p>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Implemented encryption operations inside a
+                                    Windows disk filter driver, including a
+                                    boot-loader recovery tool for critical
+                                    encryption failures.
+                                </li>
+                                <li>
+                                    Built the GUI-to-driver communication API
+                                    and developed plugin architecture for the
+                                    main application (FTP client, registry
+                                    browser, and others).
+                                </li>
+                                <li>
+                                    Designed and implemented a MySQL data layer
+                                    for metrics and statistics using Hibernate
+                                    (HQL, Criteria Queries), including
+                                    master/slave replication design.
+                                </li>
+                            </ul>
+                            <p class="tech-stack">
+                                <strong>Stack:</strong> C, C++, Java, Hibernate,
+                                MySQL, WinDbg, WinHex, IOCTL, Windows Driver
+                                Kit, TestNG
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION & CERTS -->
+            <section class="section--page">
+                <h2>Education &amp; Certifications</h2>
+
+                <div class="cert-item">
+                    <p class="period">2009 — 2010</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">Master of Engineering</p>
+                        <p class="cert-issuer">
+                            Gheorghe Asachi Technical University — Faculty of
+                            Automatic Control &amp; Computer Engineering, Iași
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">2004 — 2009</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">Bachelor of Engineering</p>
+                        <p class="cert-issuer">
+                            Gheorghe Asachi Technical University — Faculty of
+                            Automatic Control &amp; Computer Engineering, Iași
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">Jan 2023</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">
+                            AWS Certified Cloud Practitioner
+                        </p>
+                        <p class="cert-issuer">
+                            <a
+                                href="https://www.credly.com/badges/a2beb2bd-148f-4466-9e28-eecb600f2f23/public_url"
+                                target="_blank"
+                                >Verify on Credly →</a
+                            >
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">Jun 2021</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">
+                            Professional Scrum Master I (PSM I)
+                        </p>
+                        <p class="cert-issuer">
+                            <a
+                                href="https://www.credly.com/badges/91608d1a-551a-4ae8-9262-1c2459ccd2ed/public_url"
+                                target="_blank"
+                                >Verify on Credly →</a
+                            >
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">Sep 2023</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">NestJS Fundamentals</p>
+                        <p class="cert-issuer">nestjs.com</p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">Mar — Aug 2021</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">JavaScript Full-Stack Bootcamp</p>
+                        <p class="cert-issuer">flaviocopes.com</p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">May 2018</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">Train the Trainers</p>
+                        <p class="cert-issuer">Extreme Training</p>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <p class="period">2009 — 2011</p>
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <p class="cert-name">
+                            CCNA Exploration (4 modules: Network Fundamentals,
+                            Routing, LAN Switching, WAN)
+                        </p>
+                        <p class="cert-issuer">
+                            Cisco Network Academy — OAO RoEduNet, Iași
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <p class="cv-footer">Last updated: June 2026</p>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document
+                    .getElementById("generatePdf")
+                    .addEventListener("click", () => {
+                        const now = new Date();
+                        const pad = (n) => String(n).padStart(2, "0");
+                        const fileName = `Andrei_Popovici_${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}.pdf`;
+                        html2pdf(document.body, {
+                            margin: [10, 12],
+                            filename: fileName,
+                            image: { type: "jpeg", quality: 0.95 },
+                            html2canvas: { scale: 2, useCORS: true },
+                            jsPDF: {
+                                unit: "mm",
+                                format: "a4",
+                                orientation: "portrait",
+                            },
+                        });
+                    });
             });
-          });
-      });
-    </script>
-  </head>
-
-  <body>
-    <div id="container--main">
-      <section id="wrapper--hero" class="section--page">
-        <img src="./assets/images/myself.jpg" id="profile-image" />
-        <div>
-          <h1 id="user-name">Andrei Popovici</h1>
-          <p id="bio">
-            <strong>Software Engineer</strong> with 15 years of experience in
-            different areas like embedded, automotive, desktop applications,
-            cryptography.
-          </p>
-          <p id="email">
-            🖥️ Currently working @<a
-              href="https://www.endava.com/"
-              target="_blank"
-              class="linkBtn"
-              >Endava</a
-            >
-            <br />
-            📧 popovici.andrey@gmail.com <br />
-            📌
-            <a
-              href="https://www.linkedin.com/in/andrei-popovici/"
-              target="_blank"
-              class="linkBtn"
-              >LinkedIn</a
-            ><br />
-            🔗 <a href="#" id="generatePdf" class="linkBtn">Download CV</a>
-          </p>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <h2>Technical skills</h2>
-        <div id="skill--list">
-          <p class="skill-box">C/C++ / Swift / Java</p>
-          <p class="skill-box">NodeJS / NestJS / AWS / ReactJS(basic)</p>
-          <p class="skill-box">QT / XCTest</p>
-          <p class="skill-box">Python / Bash</p>
-          <p class="skill-box">HTML / CSS / JS</p>
-          <p class="skill-box">gdb / WinDbg / Vagrant / Klocwork</p>
-          <p class="skill-box">VirtualBox / VMWare</p>
-          <p class="skill-box">MySql / SQLite</p>
-          <p class="skill-box">Git, IBM Rational Management, Perforce</p>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <div id="techniques-methods">
-          <h2>Techniques & Methods</h2>
-          <ul>
-            <li>Agile Methodologies</li>
-            <li>Intensive Code Review</li>
-            <li>Peer Programming</li>
-            <li>CI & CD</li>
-            <li>TDD</li>
-            <li>Testing Automation</li>
-            <li>Testing Pyramid</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <div id="techniques-methods">
-          <h2>Domain experience</h2>
-          <ul>
-            <li>
-              3 years web development: backend engineer in fintech & insurance
-              projects
-            </li>
-            <li>5 years embedded field: 3 in automotive & 2 embedded DVRs</li>
-            <li>8 years desktop applications(windows API, linux API)</li>
-            <li>7+ years working in CI & CD environments</li>
-            <li>5 years architecture</li>
-            <li>3 years management/leadership</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <h2>Languages</h2>
-        <div id="spoken-languages">
-          <div class="language">
-            <img src="./assets/flags/gb.svg" class="flag-image" />
-            <p class="name">English</p>
-            <p class="level">Fluent</p>
-          </div>
-
-          <div class="language">
-            <img src="./assets/flags/es.svg" class="flag-image" />
-            <p class="name">Spanish</p>
-            <p class="level">Basic</p>
-          </div>
-
-          <div class="language">
-            <img src="./assets/flags/ro.svg" class="flag-image" />
-            <p class="name">Romanian</p>
-            <p class="level">Native</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <h2>Work Experience</h2>
-
-        <div class="experience">
-          <p class="period">April 2025 - ongoing</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">JavaScript SDK Engineer</h3>
-            <p class="company">@Endava for Amazon</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Driving the migration of the AWS SDK v2 DataMapper into a
-                  modern, modular library compatible with the AWS SDK for
-                  JavaScript v3.
-                </li>
-                <li>
-                  Contributed to the initial proposal and architectural plan for
-                  the new library, aligning it with v3 design principles and
-                  ecosystem standards.
-                </li>
-                <li>
-                  Reused and refactored core logic from the v2 DataMapper while
-                  implementing schema handling, marshalling, and command
-                  execution using v3’s middleware architecture.
-                </li>
-                <li>
-                  Built a proof of concept showcasing schema-based marshalling,
-                  validation, and integration with DynamoDBDocumentClient.
-                </li>
-                <li>
-                  Collaborated with SDK maintainers and senior engineers to
-                  ensure quality, maintainability, and consistency with AWS SDK
-                  design patterns.
-                </li>
-                <li>
-                  Designed and deployed a performance benchmarking suite to track and compare latency metrics for `GetItem` and `PutItem` operations in DynamoDB.
-                </li>
-                <li>
-                  Built and maintained CloudWatch dashboards to visualize real-time and historical latencies across SDK versions and payload sizes.
-                </li>
-                <li>
-                  Integrated AWS SAM, Lambda, and CloudFormation for automated deployment of synthetic canaries, enabling continuous measurement of low-level SDK client performance.
-                </li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>
-                TypeScript, JavaScript, Node.js, AWS SDK v3,
-                AWS SAM, CloudWatch Metrics & Dashboards, AWS Lambda, CloudFormation,
-                @aws-sdk/client-dynamodb, DynamoDBDocumentClient, schema
-                validation, marshalling middleware, modular architecture, unit
-                testing
-              </p>
-              <p>Platform: NodeJS</p>
-              <p>Language: Typescript & JS</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">September 2023 - April 2025</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">NodeJS Backend Engineer - trading</h3>
-            <p class="company">@Endava for LSEG</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Reshape of the already architecture(monolith) by building one
-                  from scratch using microservices
-                </li>
-                <li>
-                  Split the nodejs/express monolith in multiple microservices
-                  using NestJS & Typescript
-                </li>
-                <li>
-                  Refactoring/Reimplementing the code for the newly
-                  microservices
-                </li>
-                <li>
-                  Integrated cutting-edge tools like Microsoft Copilot
-                  Declarative Agents and Microsoft Bot Frameworks to drive
-                  innovation and automation.
-                </li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>
-                NodeJS, NestJS, Express, microservices, Microsoft Graph API,
-                OAuth2, Amazon Web Services(AWS): Elastic Search, DynamoDB,
-                Redis,
-              </p>
-              <p>Platform: NodeJS</p>
-              <p>Language: Typescript & JS</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">February 2023 - September 2023</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">NodeJS Backend Engineer - insurance</h3>
-            <p class="company">@Endava for QBE</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Bring to life for a new business line by implementing a new
-                  feature that brings together data from multiple sources
-                </li>
-                <li>
-                  Refactoring of the existing code & improve the the coverage
-                  for the testing farm
-                </li>
-                <li>Mentoring/Guidance for the other team members</li>
-                <li>Interviewing possible new joiners on the projects</li>
-                <li>
-                  Improving already existing architecture and helping team
-                  members to understand the complexity of the already existing
-                  services
-                </li>
-              </ul>
-              <p>
-                NodeJS, Express, CosmosDB, JSON Web Token, Microsoft SQL,
-                Sequelize
-              </p>
-              <p>Platform: NodeJS</p>
-              <p>Language: JS</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">August 2022 - February 2023</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">NodeJS Backend Engineer - fintech</h3>
-            <p class="company">@Endava for OneBanx</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Reshape/Redesign the architecture of the new
-                  authentication/authorization system
-                </li>
-                <li>
-                  Code implementation for migration from the Authlete to AWS
-                  Cognito Identity provider
-                </li>
-                <li>Bug fixing</li>
-                <li>Refactoring & improvements for the in place code</li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>
-                NestJS, Express, Jest, JSON Web Token, OAuth2, CIBA FLow,
-                TypeORM, Amazon Web Services(AWS): AWS Parameter Store, AWS
-                RDS(Postgress), AWS Cloud Watch, AWS Lambda, Simple Queue
-                Service (SQS), Simple Notification Service (SNS)
-              </p>
-              <p>Platform: NodeJS</p>
-              <p>Language: Typescript & JS</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">June 2019 - August 2022</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">
-              Software Engineer & Line Manager & SCRUM Master
-            </h3>
-            <p class="company">@Endava for Cisco</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Growing Iasi team by interviewing and evaluating new C++
-                  candidates
-                </li>
-                <li>Ramp-up of new people that join the team</li>
-                <li>Coding using modern C++ and Swift language</li>
-                <li>
-                  Bug fixing for the 2 of the deployment platforms: win, macOS
-                </li>
-                <li>
-                  Scripting for improving of the build system(full ownership o
-                  the mac notarization process)
-                </li>
-                <li>Line manager for a new scrum team formed of 6 engineers</li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>C++17, QtFramework, Swift, Python</p>
-              <p>Platform: win, macOS</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">January 2021 -</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">
-              C++ Community Lead & C++ Internship coordinator
-            </h3>
-            <p class="company">@Endava</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>Founded the C++ Endava Iasi Community</li>
-                <li>
-                  Created & planed from scratch the 1st edition of Endava CPP
-                  Internship
-                </li>
-                <li>
-                  Designed & Forged with CPP Community the Internship project
-                </li>
-                <li>Planed & Prepared the internship trainings</li>
-                <li>Coordinate & host technical interviews</li>
-                <li>Providing technical trainings for the students</li>
-                <li>Evaluating & Selecting the graduates</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">March 2018 - June 2019</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">SCRUM Master & Software Engineer</h3>
-            <p class="company">@Tivo</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>Facilitate the scrum ceremonies</li>
-                <li>
-                  Provide facilitation for and participate in the sprint
-                  retrospective
-                </li>
-                <li>
-                  Provide facilitation for team members during the sprints
-                </li>
-                <li>
-                  Remove impediments for the team so they can get on with the
-                  work
-                </li>
-                <li>Coach the team in scrum practices</li>
-              </ul>
-              <h3>Team size:</h3>
-              <p>7 Engineers(6 Devs + 1QA) + 1 Product Owner</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">April 2017 - June 2019</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">
-              Software Engineer - middleware embedded IPVOD + IPTV
-            </h3>
-            <p class="company">@Tivo</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>Code review/quality check</li>
-                <li>
-                  Writing design review documents for the software components
-                </li>
-                <li>Defining/implementing solutions for IP Linear project</li>
-                <li>
-                  Defining/implementing solutions for improving the stability
-                  and performance of the software components in case of IPVOD
-                  playback
-                </li>
-                <li>
-                  Configuration of the working environment for different type of
-                  architectures
-                </li>
-                <li>
-                  Providing technical/ project specific/ on-the-job trainings to
-                  team members
-                </li>
-                <li>Sharing the know-how from his area of expertise</li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>C++98, Haxe, Jira, perforce, CI&CD</p>
-              <p>Platform: win, Ubuntu</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">March 2014 - April 2017</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">
-              Technical Leader / Software Architect / Software Engineer -
-              middleware automotive Infotainment platform
-            </h3>
-            <p class="company">@Continental</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Review requirements and decide/conclude the changes of the
-                  design and the architecture of the software component
-                </li>
-                <li>Code review/quality check</li>
-                <li>
-                  Defining/implementing solutions for improving the stability
-                  and performance of the software component
-                </li>
-                <li>Providing technical support for team members</li>
-                <li>
-                  Providing technical/ project specific/ on-the-job trainings to
-                  team members share the know-how from his area of expertise
-                </li>
-                <li>
-                  Defining software design for high complexity modules/
-                  components/ functionalities and documents each step, according
-                  to established processes and methods
-                </li>
-                <li>
-                  Being involved in setting priorities, dead-lines, and
-                  analyzing the risk for the networking domain
-                </li>
-                <li>
-                  Being involved in recruiting new team members, new department
-                  members
-                </li>
-                <li>
-                  Being part of the mentoring team of the System Software
-                  Department
-                </li>
-                <li>
-                  Implement and test embedded solution for multimedia system
-                  from different layers (middleware layer, application layer)
-                </li>
-                <li>
-                  Redesign concept of different modules of the software
-                  component and implement code optimizations
-                </li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>
-                C/C++, python, Controller Area Network, DBUS, Linux API, Glib,
-                Ubuntu, vagrid, klocwork, Kanban, Qt Creator, CI&CD, unit
-                testing
-              </p>
-              <p>Platform: Linux</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <p class="period">February 2008 - March 2014</p>
-          <div class="image-timeline"><p>o</p></div>
-          <div class="description">
-            <h3 class="job-title">
-              C/C++/Java Software Engineer - windows file system filter drivers
-              & windows applications
-            </h3>
-            <p class="company">@Comodo</p>
-            <div class="job-description">
-              <h3>Tasks</h3>
-              <ul>
-                <li>
-                  Implemented into a disk filter driver several encryption
-                  operations
-                </li>
-                <li>
-                  Implemented the API that allows the communications between the
-                  GUI and the Driver
-                </li>
-                <li>
-                  Implemented a recovery tool that allow user to restore the
-                  boot-loader in case of a major error on encryption
-                </li>
-                <li>
-                  Defining software design for the MySql database used for
-                  metrics and statistics module
-                </li>
-                <li>
-                  Providing technical solutions for CRUD operations on the
-                  database
-                </li>
-                <li>
-                  Implement data access layer using Hibernate to access and
-                  populate the database (HQL, Criteria Queries)
-                </li>
-                <li>
-                  Implement Core modules for LPS 3.1 and 4.0 and Dashboards
-                  Applications
-                </li>
-                <li>
-                  Defining design for master/slave replication for MySql server
-                </li>
-                <li>Implement unit tests for Spring services</li>
-                <li>Code review/quality check</li>
-                <li>
-                  Providing technical solutions for implementing different types
-                  of plugins for the main application (ftp client, registry
-                  browser, many others)
-                </li>
-              </ul>
-              <h3>Technical Skills and Tools</h3>
-              <p>
-                C++, Java, C, Hibernate, Subversion, Tortoise SVN, Jira, MySQL,
-                TestNG, Windows, WinHex, WinDBG, encryption algorithms,
-                encryption modes, filter driver, Device Input and Output Control
-                (IOCTL), windows development kit.
-              </p>
-              <p>Platform: Windows</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <h2>Education and Certifications</h2>
-        <h3>Certifications</h3>
-        <div class="work-experience">
-          <div class="experience">
-            <p class="period">September 2023</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">NestJS Fundamentals Course</h3>
-              <p class="company">@nestjs.com</p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">January 2023</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">AWS Certified Cloud Practitioner</h3>
-              <a
-                href="https://www.credly.com/badges/a2beb2bd-148f-4466-9e28-eecb600f2f23/public_url"
-                target="_blank"
-                ><p class="company">@amazon.com</p></a
-              >
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">March-August 2021</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">THE JAVASCRIPT FULL-STACK BOOTCAMP</h3>
-              <p class="company">@flaviocopes</p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">June 2021</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">Professional Scrum Master I</h3>
-              <a
-                href="https://www.credly.com/badges/91608d1a-551a-4ae8-9262-1c2459ccd2ed/public_url"
-                target="_blank"
-                ><p class="company">@scrum.org</p></a
-              >
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">May 2018</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">Train the trainers</h3>
-              <p class="company">@Extreme-training</p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">September 2011</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">CCNA Exploration: Accessing the WAN</h3>
-              <p class="company">
-                @Cisco Network Academy - OAO RoEduNet, Iasi, Romania
-              </p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">July 2011</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">
-                CCNA Exploration: Lan Switching and Wireless
-              </h3>
-              <p class="company">
-                @Cisco Network Academy - OAO RoEduNet, Iasi, Romania
-              </p>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">June 2010</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">
-                CCNA Exploration: Routing Protocols and Concepts
-              </h3>
-              <p class="company">
-                @Cisco Network Academy - OAO RoEduNet, Iasi, Romania
-              </p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">August 2009</p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">CCNA Exploration: Network Fundamentals</h3>
-              <p class="company">
-                @Cisco Network Academy - OAO RoEduNet, Iasi, Romania
-              </p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <h3>Qualifications</h3>
-          <div class="experience">
-            <p class="period">
-              2009 - 2010 <br /><span class="company"
-                >Gheorghe Asachi Technical University of Iasi - Romania</span
-              >
-            </p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">Master Engineer’s degree</h3>
-              <p class="company">
-                Faculty of Automatic Control and Computer Engineering
-              </p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-
-          <div class="experience">
-            <p class="period">
-              2004 – 2009 <br /><span class="company"
-                >Gheorghe Asachi Technical University of Iasi - Romania</span
-              >
-            </p>
-            <div class="image-timeline"><p>o</p></div>
-            <div class="description">
-              <h3 class="job-title">Engineer’s degree</h3>
-              <p class="company">
-                Faculty of Automatic Control and Computer Engineering
-              </p>
-              <div class="job-description"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section--page">
-        <h5>Last update: 22/05/2025</h5>
-      </section>
-    </div>
-  </body>
+        </script>
+    </body>
 </html>

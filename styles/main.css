@@ -1,231 +1,449 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --mainTextColor-light: #000;
-  --secondaryTextColor-light: rgb(51 51 51);
-  --mainLinkColor-light: #0da2b8;
-  --mainBorderColor-light: rgb(218, 218, 218);
-  --mainBgColor-light: rgb(249, 250, 251);
-  --mainImageBgColor-light: rgb(51 51 51);
+    --mainTextColor-light: #000;
+    --secondaryTextColor-light: rgb(51, 51, 51);
+    --mainLinkColor-light: #0da2b8;
+    --mainBorderColor-light: rgb(218, 218, 218);
+    --mainBgColor-light: rgb(249, 250, 251);
+    --mainImageBgColor-light: rgb(51, 51, 51);
 
-  --mainTextColor-dark: #fff;
-  --secondaryTextColor-dark: #adb0b1;
-  --mainLinkColor-dark: rgb(30, 190, 214);
-  --mainBorderColor-dark: #2b3031;
-  --mainBgColor-dark: #131415;
-  --mainImageBgColor-dark: #adb0b1;
+    --mainTextColor-dark: #fff;
+    --secondaryTextColor-dark: #adb0b1;
+    --mainLinkColor-dark: rgb(30, 190, 214);
+    --mainBorderColor-dark: #2b3031;
+    --mainBgColor-dark: #131415;
+    --mainImageBgColor-dark: #adb0b1;
 
-  --mainTextColor: var(--mainTextColor-light);
-  --secondaryTextColor: var(--secondaryTextColor-light);
-  --mainLinkColor: var(--mainLinkColor-light);
-  --mainBorderColor: var(--mainBorderColor-light);
-  --mainBgColor: var(--mainBgColor-light);
-  --mainImageBgColor: var(--mainImageBgColor-light);
+    --mainTextColor: var(--mainTextColor-light);
+    --secondaryTextColor: var(--secondaryTextColor-light);
+    --mainLinkColor: var(--mainLinkColor-light);
+    --mainBorderColor: var(--mainBorderColor-light);
+    --mainBgColor: var(--mainBgColor-light);
+    --mainImageBgColor: var(--mainImageBgColor-light);
+
+    --accentLight: #e0f7fa;
+    --accentDark: #006064;
 }
 
-* {
-  font-family: "Readex Pro";
-  line-height: 1.5em;
-  box-sizing: border-box;
-  color: var(--mainTextColor);
+@media (prefers-color-scheme: dark) {
+    :root {
+        --mainTextColor: var(--mainTextColor-dark);
+        --secondaryTextColor: var(--secondaryTextColor-dark);
+        --mainLinkColor: var(--mainLinkColor-dark);
+        --mainBorderColor: var(--mainBorderColor-dark);
+        --mainBgColor: var(--mainBgColor-dark);
+        --mainImageBgColor: var(--mainImageBgColor-dark);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Readex Pro", system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--mainTextColor);
 }
 
 body {
-  background-color: var(--mainBgColor);
+    background-color: var(--mainBgColor);
+    font-size: 14px;
 }
 
-p,
-span,
-li {
-  color: var(--secondaryTextColor);
-  font-size: 1em;
-}
-
-a {
-  text-decoration: underline;
-  color: var(--mainLinkColor);
-  font-size: 500;
-}
-
-li {
-  line-height: 1.9em;
-  list-style-type: circle;
-  font-size: 1.1em;
-}
-
-ul li::before {
-  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: var(--mainLinkColor); /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
-}
-
-li:hover {
-  background: var(--mainBorderColor);
-  filter: alpha(opacity=20);
-}
-
-#skill--list {
-  display: flex;
-  justify-content: flex-start;
-  column-gap: 1em;
-  flex-wrap: wrap;
-}
-
-.skill-box {
-  display: block;
-  background: var(--mainLinkColor);
-  color: var(--mainBgColor);
-  padding: 5px;
-  border-radius: 3%;
-  margin: 5px;
-}
+/* ── LAYOUT ── */
 
 #container--main {
-  max-width: 800px;
-  margin: 0 auto;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 48px 60px;
 }
 
 .section--page {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 28px;
 }
 
+.section--page h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondaryTextColor);
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--mainBorderColor);
+}
+
+/* ── HERO ── */
+
 #wrapper--hero {
-  display: flex;
-  align-items: center;
-  gap: 4em;
+    overflow: hidden;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--mainBorderColor);
+    margin-bottom: 28px;
 }
 
 #profile-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-#download-image {
-  width: 20px;
-  height: 20px;
-}
-
-#bio,
-a {
-  font-weight: 300;
+    float: left;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--mainBorderColor);
+    margin: 4px 24px 12px 0;
 }
 
 #user-name {
-  font-size: 2.5em;
-  line-height: 1em;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    margin-bottom: 8px;
 }
 
-#email {
-  color: var(--mainTextColor);
+#bio {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--secondaryTextColor);
+    line-height: 1.65;
+    margin-bottom: 14px;
 }
 
-#email,
-a {
-  font-weight: 300;
+#bio strong {
+    font-weight: 600;
+    color: var(--mainTextColor);
 }
+
+/* ── CONTACT ROW ── */
+
+.contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 13px;
+    font-weight: 300;
+    align-items: center;
+}
+
+.contact-row a,
+.contact-row span {
+    color: var(--secondaryTextColor);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact-row a:hover {
+    color: var(--mainLinkColor);
+}
+
+.contact-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.55;
+    flex-shrink: 0;
+}
+
+#generatePdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--mainLinkColor);
+    color: var(--mainBgColor);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 11px;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: "Readex Pro", system-ui, sans-serif;
+}
+
+#generatePdf:hover {
+    opacity: 0.85;
+}
+
+/* ── SKILLS ── */
+
+#skill--list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.skill-box {
+    display: block;
+    background: var(--mainBorderColor);
+    color: var(--mainTextColor);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12.5px;
+    font-weight: 400;
+}
+
+.skill-box.current {
+    background: var(--mainLinkColor);
+    color: var(--mainBgColor);
+}
+
+.skill-legend {
+    font-size: 11px;
+    color: var(--secondaryTextColor);
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+/* ── TWO COLUMN ── */
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+}
+
+.two-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.two-col ul li {
+    font-size: 13px;
+    color: var(--secondaryTextColor);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.two-col ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--mainLinkColor);
+    font-size: 11px;
+    top: 5px;
+}
+
+/* ── LANGUAGES ── */
 
 #spoken-languages {
-  display: flex;
-  column-gap: 1em;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .language {
-  max-width: 120px;
-  margin: 0 auto;
-  text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
 }
 
 .flag-image {
-  width: 50px;
-  height: auto;
-  border-radius: 10%;
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid var(--mainBorderColor);
 }
 
-.name {
-  color: var(--mainTextColor);
-  font-size: 0.9em;
-  margin: 5px 0px;
+.language .name {
+    font-weight: 500;
+    color: var(--mainTextColor);
 }
 
-.level {
-  color: var(--secondaryTextColor);
-  font-size: 0.9em;
-  font-weight: 200;
-  margin: 5px 0px;
+.language .level {
+    color: var(--secondaryTextColor);
+    font-size: 12px;
+    font-weight: 300;
 }
 
-.work-experience {
-  display: block;
-}
+/* ── TIMELINE ── */
 
 .experience {
-  display: flex;
-  column-gap: 0.5em;
+    display: grid;
+    grid-template-columns: 130px 20px 1fr;
+    gap: 0 16px;
+    margin-bottom: 26px;
+    position: relative;
+}
+
+.experience:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 147px;
+    top: 22px;
+    bottom: -26px;
+    width: 1px;
+    background: var(--mainBorderColor);
 }
 
 .period {
-  margin-top: 0px;
-  min-width: 250px;
-  width: 250px;
-  text-align: right;
+    font-size: 12px;
+    color: var(--secondaryTextColor);
+    text-align: right;
+    padding-top: 2px;
+    line-height: 1.4;
+    font-weight: 300;
 }
 
-.image-timeline {
-  background: var(--mainImageBgColor);
-  font-weight: 500;
-  font-size: large;
+.timeline-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
 }
 
-.image-timeline p {
-  margin-top: -5px;
-  color: var(--mainBgColor);
+.timeline-dot::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--mainBgColor);
+    border: 2px solid var(--mainLinkColor);
+    flex-shrink: 0;
 }
 
 .description {
-  margin: 0px 0px 10px 0px;
-  min-width: 500px;
-  padding: 5px 5px 5px 5px;
+    padding-bottom: 4px;
 }
 
 .job-title {
-  margin-top: -6px;
-  margin-bottom: 0px;
-  font-size: 1em;
-  color: var(--mainTextColor);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mainTextColor);
+    margin-bottom: 2px;
 }
 
 .company {
-  font-size: 0.9em;
-  color: var(--mainLinkColor);
-  margin-top: 0px;
-  margin-bottom: 5px;
+    font-size: 12.5px;
+    color: var(--mainLinkColor);
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
-.job-description {
-  font-size: 0.8em;
-  color: var(--secondaryTextColor);
+.job-description ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 8px;
 }
 
-.linkBtn {
-  opacity: 100;
+.job-description ul li {
+    font-size: 13px;
+    color: var(--secondaryTextColor);
+    padding: 3px 0 3px 16px;
+    position: relative;
+    line-height: 1.55;
+    font-weight: 300;
 }
-.linkBtn:hover {
-  opacity: 0.5;
+
+.job-description ul li::before {
+    content: "·";
+    position: absolute;
+    left: 4px;
+    color: var(--mainLinkColor);
+    font-size: 18px;
+    line-height: 1.2;
 }
+
+.tech-stack {
+    font-size: 12px;
+    color: var(--secondaryTextColor);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.tech-stack strong {
+    color: var(--mainTextColor);
+    font-weight: 500;
+}
+
+/* ── CERTS ── */
+
+.cert-item {
+    display: grid;
+    grid-template-columns: 130px 20px 1fr;
+    gap: 0 16px;
+    margin-bottom: 12px;
+}
+
+.cert-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--mainTextColor);
+}
+
+.cert-issuer {
+    font-size: 12px;
+    color: var(--secondaryTextColor);
+    font-weight: 300;
+}
+
+.cert-issuer a {
+    color: var(--mainLinkColor);
+    text-decoration: none;
+}
+
+.cert-issuer a:hover {
+    text-decoration: underline;
+}
+
+/* ── FOOTER ── */
+
+.cv-footer {
+    font-size: 11px;
+    color: var(--secondaryTextColor);
+    text-align: right;
+    margin-top: 40px;
+    padding-top: 12px;
+    border-top: 1px solid var(--mainBorderColor);
+    opacity: 0.6;
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 640px) {
+    #container--main {
+        padding: 24px 20px;
+    }
+
+    .experience,
+    .cert-item {
+        grid-template-columns: 100px 16px 1fr;
+        gap: 0 10px;
+    }
+
+    .experience:not(:last-child)::after {
+        left: 113px;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── PRINT ── */
 
 @media print {
-  @page {
-    margin-left: 0.8in;
-    margin-right: 0.8in;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+    @page {
+        margin-left: 0.8in;
+        margin-right: 0.8in;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #generatePdf {
+        display: none;
+    }
+
+    .experience:not(:last-child)::after {
+        display: none;
+    }
 }
