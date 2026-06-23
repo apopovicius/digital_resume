@@ -11,6 +11,22 @@
             href="./styles/main.css"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script>
+            // Set the theme before first paint to avoid a flash of the wrong theme.
+            (function () {
+                var stored = null;
+                try {
+                    stored = localStorage.getItem("theme");
+                } catch (e) {}
+                var theme =
+                    stored ||
+                    (window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                        ? "dark"
+                        : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
     </head>
 
     <body>
@@ -119,6 +135,46 @@
                             <line x1="12" y1="15" x2="12" y2="3" />
                         </svg>
                         Download PDF
+                    </button>
+                    <button
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle dark / light theme"
+                        title="Toggle dark / light theme"
+                    >
+                        <svg
+                            class="icon-moon"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                            />
+                        </svg>
+                        <svg
+                            class="icon-sun"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="4" />
+                            <path
+                                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                            />
+                        </svg>
                     </button>
                 </div>
             </section>
@@ -778,23 +834,60 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                const root = document.documentElement;
+
+                // ── Theme toggle ──
+                document
+                    .getElementById("themeToggle")
+                    .addEventListener("click", () => {
+                        const next =
+                            root.getAttribute("data-theme") === "dark"
+                                ? "light"
+                                : "dark";
+                        root.setAttribute("data-theme", next);
+                        try {
+                            localStorage.setItem("theme", next);
+                        } catch (e) {}
+                    });
+
+                // ── Download PDF (always rendered on the light theme) ──
                 document
                     .getElementById("generatePdf")
                     .addEventListener("click", () => {
                         const now = new Date();
                         const pad = (n) => String(n).padStart(2, "0");
                         const fileName = `Andrei_Popovici_${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}.pdf`;
+
+                        // html2canvas captures on-screen styles (it ignores
+                        // @media print), so temporarily force the light theme.
+                        const prevTheme = root.getAttribute("data-theme");
+                        root.setAttribute("data-theme", "light");
+
+                        const restore = () => {
+                            if (prevTheme === null) {
+                                root.removeAttribute("data-theme");
+                            } else {
+                                root.setAttribute("data-theme", prevTheme);
+                            }
+                        };
+
                         html2pdf(document.body, {
                             margin: [10, 12],
                             filename: fileName,
                             image: { type: "jpeg", quality: 0.95 },
-                            html2canvas: { scale: 2, useCORS: true },
+                            html2canvas: {
+                                scale: 2,
+                                useCORS: true,
+                                backgroundColor: "#ffffff",
+                            },
                             jsPDF: {
                                 unit: "mm",
                                 format: "a4",
                                 orientation: "portrait",
                             },
-                        });
+                        })
+                            .then(restore)
+                            .catch(restore);
                     });
             });
         </script>

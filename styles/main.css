@@ -26,8 +26,19 @@
     --accentDark: #006064;
 }
 
+/* Explicit dark theme (set via the toggle / data-theme attribute) */
+:root[data-theme="dark"] {
+    --mainTextColor: var(--mainTextColor-dark);
+    --secondaryTextColor: var(--secondaryTextColor-dark);
+    --mainLinkColor: var(--mainLinkColor-dark);
+    --mainBorderColor: var(--mainBorderColor-dark);
+    --mainBgColor: var(--mainBgColor-dark);
+    --mainImageBgColor: var(--mainImageBgColor-dark);
+}
+
+/* Follow the OS preference only until the user makes an explicit choice */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
         --mainTextColor: var(--mainTextColor-dark);
         --secondaryTextColor: var(--secondaryTextColor-dark);
         --mainLinkColor: var(--mainLinkColor-dark);
@@ -168,6 +179,41 @@ body {
     opacity: 0.85;
 }
 
+#themeToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: transparent;
+    color: var(--secondaryTextColor);
+    border: 1px solid var(--mainBorderColor);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#themeToggle:hover {
+    color: var(--mainLinkColor);
+    border-color: var(--mainLinkColor);
+}
+
+#themeToggle .icon-sun {
+    display: none;
+}
+
+#themeToggle .icon-moon {
+    display: block;
+}
+
+:root[data-theme="dark"] #themeToggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme="dark"] #themeToggle .icon-moon {
+    display: none;
+}
+
 /* ── SKILLS ── */
 
 #skill--list {
@@ -277,7 +323,7 @@ body {
 .experience:not(:last-child)::after {
     content: "";
     position: absolute;
-    left: 147px;
+    left: 156px;
     top: 22px;
     bottom: -26px;
     width: 1px;
@@ -421,7 +467,7 @@ body {
     }
 
     .experience:not(:last-child)::after {
-        left: 113px;
+        left: 118px;
     }
 
     .two-col {
@@ -432,6 +478,18 @@ body {
 /* ── PRINT ── */
 
 @media print {
+    /* Always print on a clean light theme, regardless of the active toggle */
+    :root,
+    :root[data-theme="dark"],
+    :root:not([data-theme]) {
+        --mainTextColor: var(--mainTextColor-light);
+        --secondaryTextColor: var(--secondaryTextColor-light);
+        --mainLinkColor: var(--mainLinkColor-light);
+        --mainBorderColor: var(--mainBorderColor-light);
+        --mainBgColor: #fff;
+        --mainImageBgColor: var(--mainImageBgColor-light);
+    }
+
     @page {
         margin-left: 0.8in;
         margin-right: 0.8in;
@@ -439,7 +497,8 @@ body {
         margin-bottom: 0;
     }
 
-    #generatePdf {
+    #generatePdf,
+    #themeToggle {
         display: none;
     }
 
