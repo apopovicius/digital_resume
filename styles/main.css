@@ -179,6 +179,10 @@ body {
     opacity: 0.85;
 }
 
+#generatePdf svg {
+    color: inherit;
+}
+
 #themeToggle {
     position: fixed;
     top: 20px;
