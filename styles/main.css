@@ -93,8 +93,7 @@ body {
 
 #wrapper--hero {
     overflow: hidden;
-    padding-bottom: 28px;
-    margin-bottom: 28px;
+    margin-bottom: 16px;
 }
 
 #profile-image {
