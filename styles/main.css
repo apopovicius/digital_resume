@@ -121,6 +121,7 @@ body {
     color: var(--secondaryTextColor);
     line-height: 1.65;
     margin-bottom: 14px;
+    text-align: justify;
 }
 
 #bio strong {
