@@ -94,7 +94,6 @@ body {
 #wrapper--hero {
     overflow: hidden;
     padding-bottom: 28px;
-    border-bottom: 1px solid var(--mainBorderColor);
     margin-bottom: 28px;
 }
 
@@ -494,6 +493,7 @@ body {
     color: var(--secondaryTextColor);
     line-height: 1.75;
     margin-bottom: 14px;
+    text-align: justify;
 }
 
 .narrative p:last-child {
